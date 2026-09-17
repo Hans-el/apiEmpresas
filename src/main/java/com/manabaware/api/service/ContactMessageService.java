@@ -9,4 +9,6 @@ public interface ContactMessageService {
     List<ContactMessageResponseDTO> findAll();
 
     ContactMessageResponseDTO create(ContactMessageRequestDTO dto);
+
+    ContactMessageResponseDTO markAsRead(Long id);
 }

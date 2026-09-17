@@ -2,6 +2,7 @@ package com.manabaware.api.service.impl;
 
 import com.manabaware.api.dto.request.ContactMessageRequestDTO;
 import com.manabaware.api.dto.response.ContactMessageResponseDTO;
+import com.manabaware.api.exception.ResourceNotFoundException;
 import com.manabaware.api.mapper.ContactMessageMapper;
 import com.manabaware.api.model.ContactMessage;
 import com.manabaware.api.repository.ContactMessageRepository;
@@ -33,6 +34,15 @@ public class ContactMessageServiceImpl implements ContactMessageService {
     @Transactional
     public ContactMessageResponseDTO create(ContactMessageRequestDTO dto) {
         ContactMessage msg = contactMessageMapper.toEntity(dto);
+        return contactMessageMapper.toResponseDTO(contactMessageRepository.save(msg));
+    }
+
+    @Override
+    @Transactional
+    public ContactMessageResponseDTO markAsRead(Long id) {
+        ContactMessage msg = contactMessageRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Mensaje no encontrado con id: " + id));
+        msg.setRead(true);
         return contactMessageMapper.toResponseDTO(contactMessageRepository.save(msg));
     }
 }

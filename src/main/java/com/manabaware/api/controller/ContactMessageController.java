@@ -27,4 +27,9 @@ public class ContactMessageController {
     public ResponseEntity<ContactMessageResponseDTO> create(@Valid @RequestBody ContactMessageRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(contactMessageService.create(dto));
     }
+
+    @PatchMapping("/{id}/read")
+    public ResponseEntity<ContactMessageResponseDTO> markAsRead(@PathVariable Long id) {
+        return ResponseEntity.ok(contactMessageService.markAsRead(id));
+    }
 }

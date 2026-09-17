@@ -100,6 +100,12 @@
 			<version>0.13.0</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- para env -->
+		<dependency>
+			<groupId>me.paulschwarz</groupId>
+			<artifactId>springboot4-dotenv</artifactId>
+			<version>5.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
