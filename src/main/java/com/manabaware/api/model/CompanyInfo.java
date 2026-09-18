@@ -30,4 +30,11 @@ public class CompanyInfo {
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt = LocalDateTime.now();
+
+    @Column(length = 255)
+    private String address;
+
+    private Double latitude;
+
+    private Double longitude;
 }

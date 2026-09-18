@@ -14,4 +14,7 @@ public class CompanyInfoRequestDTO {
     @NotBlank
     private String history;
     private Integer foundedYear;
+    private String address;
+    private Double latitude;
+    private Double longitude;
 }

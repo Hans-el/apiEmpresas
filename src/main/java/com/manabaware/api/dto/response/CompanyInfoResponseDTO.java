@@ -15,4 +15,7 @@ public class CompanyInfoResponseDTO {
     private String history;
     private Integer foundedYear;
     private LocalDateTime updatedAt;
+    private String address;
+    private Double latitude;
+    private Double longitude;
 }
